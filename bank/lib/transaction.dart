@@ -13,9 +13,18 @@ enum TransactionType {
 }
 
 class Transaction {
+  static const _transactionTypeName = {
+    TransactionType.withdrawal: "SAQUE",
+    TransactionType.deposit : "DEPÓSITO",
+    TransactionType.payment : "PAGAMENTO",
+    TransactionType.revenue : "RENDIMENTO",
+    TransactionType.interest : "JUROS",
+    TransactionType.transfer : "TRANSFERÊNCIA",
+  };
+
   final TransactionType type;
   final DateTime date;
-  final String? description;
+  final String? _description;
   late final double _value;
 
   Transaction({
@@ -23,8 +32,8 @@ class Transaction {
    required this.type,
    required this.date, 
    required double value, 
-   this.description,
-  }) { 
+   String? description,
+  }) : _description = description{ 
     _setValue(value, nature);
   }
 
@@ -32,8 +41,8 @@ class Transaction {
    required TransactionNature nature,
    required this.type, 
    required double value, 
-   this.description,
-  }) : date = DateTime.now(){
+   String? description,
+  }) : date = DateTime.now(), _description = description{
     _setValue(value, nature);
   }
 
@@ -44,8 +53,11 @@ class Transaction {
     _value = nature == TransactionNature.credit ? value : -value;
   }
 
+  String get description => _description ?? _transactionTypeName[type]!;
+
   double get value => _value;
 
   bool get isCredit => _value >= 0.0;
+
   bool get isDebit => _value <= 0.0;
 }

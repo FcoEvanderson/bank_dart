@@ -7,9 +7,11 @@ void main (){
 
   var s = SpecialAccount(agency: 645, number: 98756, clientName: "Fulano de tal", limit: 1000.0);
 
-  c.deposit(500.0);
   s.deposit(500.0);
+  s.withdrawal(500.0);
 
-  print("current: ${c.balance}");
+  
+
+  print("current: ${s.balance}");
   print("special: ${s.balance}");
 }
