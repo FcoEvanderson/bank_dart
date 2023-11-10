@@ -45,7 +45,9 @@ String valueToString(
   }){
     var result = "";
     var signal = value.isNegative ? "D" : "C";
-    var [intPart, decPart] = value.toStringAsFixed(decimalPrecision).split(".");
+    var parts = value.abs().toStringAsFixed(decimalPrecision).split(".");
+    var intPart = parts.isNotEmpty ? parts[0] : "";
+    var decPart = parts.length > 1 ? parts[1] : "";
     var thousandPlaces = intPart.length % 3;
     var i = 0;
 

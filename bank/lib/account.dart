@@ -144,15 +144,11 @@ abstract class Account {
     }
   }
 
-  double get limit => limit;
-
   void statementFooter(){
     var tabs = List<int>.from(StatementData.tabs);
     tabs[1] = -tabs[1];
 
     print("-" * StatementData.width);
     tabPrint("\tSALDO\t${balance}", tabs);
-    tabPrint("\tLIMITE\t$limit", tabs);
-    tabPrint("\tDISPONÍVEL\t$balance", tabs);
   }
 }

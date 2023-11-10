@@ -42,7 +42,8 @@ class Transaction {
    required this.type, 
    required double value, 
    String? description,
-  }) : date = DateTime.now(), _description = description{
+  }) : date = DateTime.now(), 
+      _description = description{
     _setValue(value, nature);
   }
 

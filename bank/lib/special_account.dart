@@ -25,11 +25,11 @@ class SpecialAccount extends Account {
 
     var fBalance = valueToString(super.balance, decimalPrecision: 0);
     var fLimit = valueToString(limit);
-    var fAvaible = valueToString(balance);
+    var fAvailable = valueToString(balance);
 
     print("-" * StatementData.width);
     tabPrint("\tSALDO\t$fBalance", tabs);
     tabPrint("\tLIMITE\t$fLimit", tabs);
-    tabPrint("\tDISPONÍVEL\t$fAvaible", tabs);
+    tabPrint("\tDISPONÍVEL\t$fAvailable", tabs);
   }
 }
